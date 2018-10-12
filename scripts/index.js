@@ -5,7 +5,7 @@ console.log("yep, I am here.")
 
 // #1 Make some code run
 // when i click the button.
-const triggerElement = document.querySelector('[data-trigger]');
+// const triggerElement = document.querySelector('[data-trigger]');
 const outputElement = document.querySelector('[data-output]')
 const outputImage = document.querySelector('[data-image]')
 
@@ -20,7 +20,21 @@ const fortunes = [
     "Run."
 ];
 
-
+function createFortuneButton(){
+    const theButton = document.createElement('button');
+    theButton.textContent = 'Click here for a fortune';
+    theButton.setAttribute('data-trigger', '');
+    return theButton;
+}
+function createButtonContainer() {
+    const buttonContainer = document.createElement('div');
+    buttonContainer.classList.add('butonContainer');
+    // const theButton = createFortuneButton();
+    // buttonContainer.appendChild(theButton);
+    buttonContainer.appendChild(createFortuneButton);
+    
+    return buttonContainer;
+}
 
 // function hello() {
 //     console.log(`Hello addEventListener!`);
@@ -90,6 +104,7 @@ triggerElement.addEventListener('click', function () {
     console.log(`Hello AddEventListener!`);
     let index = [Math.floor(Math.random() * fortunes.length)];
     const newFortune = fortunes[index];
+    
     
     // index++;
     // if(index > fortunes.length -1){
